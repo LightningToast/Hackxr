@@ -5,13 +5,20 @@ using UnityEngine.Networking;
 
 public class NetworkPlayerControl : NetworkBehaviour {
     GameObject VRRig;
+    bool VR;
+    bool AR;
 	// Use this for initialization
 	void Start () {
 		if(!isLocalPlayer)
         {
             return;
         }
-        VRRig = GameObject.Find("LocalPlayer");
+        VR = GameObject.Find("NetworkManager").GetComponent<LocalNetwork>().VR;
+        AR = GameObject.Find("NetworkManager").GetComponent<LocalNetwork>().AR;
+        if (VR)
+        {
+            VRRig = GameObject.Find("LocalPlayer");
+        }
 	}
 	
 	// Update is called once per frame
@@ -20,7 +27,10 @@ public class NetworkPlayerControl : NetworkBehaviour {
         {
             return;
         }
-        transform.position = VRRig.transform.GetChild(0).transform.position;
-        print(VRRig.transform.GetChild(0).transform.position);
-	}
+        if (VR)
+        {
+            transform.position = VRRig.transform.GetChild(0).transform.position;
+            print(VRRig.transform.GetChild(0).transform.position);
+        }
+    }
 }

@@ -19,6 +19,9 @@ public class NetworkPlayerControl : NetworkBehaviour {
         {
             VRRig = GameObject.Find("LocalPlayer");
         }
+        if (AR) {
+            transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        }
 	}
 	
 	// Update is called once per frame

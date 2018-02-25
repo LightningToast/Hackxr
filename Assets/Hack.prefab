@@ -154,3 +154,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correct: 0
   callBack: {fileID: 0}
+  rotateSpeed: 50

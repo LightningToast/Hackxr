@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class NetworkPlayerControl : NetworkBehaviour {
+    public GameObject indicatorObject;
+    GameObject indicator;
     GameObject VRRig;
     bool VR;
     bool AR;
@@ -18,6 +20,7 @@ public class NetworkPlayerControl : NetworkBehaviour {
         if (VR)
         {
             VRRig = GameObject.Find("LocalPlayer");
+            CmdSpawnIndicator();
         }
         if (AR) {
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
@@ -33,7 +36,15 @@ public class NetworkPlayerControl : NetworkBehaviour {
         if (VR)
         {
             transform.position = VRRig.transform.GetChild(0).transform.position;
+            indicator.transform.position = VRRig.transform.GetChild(0).position;
             print(VRRig.transform.GetChild(0).transform.position);
         }
+    }
+    [Command]
+    void CmdSpawnIndicator () {
+        indicator = (GameObject)Instantiate(
+            indicatorObject, transform.position, transform.rotation);
+
+        NetworkServer.SpawnWithClientAuthority(indicator, connectionToClient);
     }
 }

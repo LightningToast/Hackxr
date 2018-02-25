@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ARRender : MonoBehaviour {
-    bool active = false;
+    public bool active = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,18 +11,19 @@ public class ARRender : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(active) {
+
+        if (GetComponent<Collider>().bounds.Intersects(GameObject.Find("Indicator").GetComponent<Collider>().bounds))
+        {
+            Debug.Log("Bounds intersecting");
             transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         } else {
             transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         }
-        active = false;
+
+        //active = false;
 	}
-    private void OnCollisionStay(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
-        print("IN RANGE");
-        if(collision.gameObject.tag.Equals("Vision")) {
-            active = true;
-        }
+       
     }
 }

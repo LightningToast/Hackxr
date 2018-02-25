@@ -9,6 +9,7 @@ public class NetworkPlayerControl : NetworkBehaviour {
     GameObject VRRig;
     bool VR;
     bool AR;
+    float timeCount = 0;
 	// Use this for initialization
 	void Start () {
 		if(!isLocalPlayer)
@@ -41,6 +42,8 @@ public class NetworkPlayerControl : NetworkBehaviour {
 
             print(VRRig.transform.GetChild(0).transform.position);
         }
+        timeCount += Time.deltaTime;
+
     }
     [Command]
     void CmdSpawnIndicator () {
@@ -48,5 +51,13 @@ public class NetworkPlayerControl : NetworkBehaviour {
             indicatorObject, transform.position, transform.rotation);
 
         NetworkServer.SpawnWithClientAuthority(temp, connectionToClient);
+    }
+    [Command]
+    void CmdEndGame () {
+        
+    }
+    [ClientRpc]
+    void RpcEndGame () {
+        
     }
 }

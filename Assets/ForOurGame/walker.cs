@@ -6,6 +6,7 @@ using System;
 public class walker : MonoBehaviour {
     public float rayLength = 4.0f;
     public float corrLength = 5.0f;
+    public LayerMask wallMask;
     private Transform enemy;
     private Rigidbody rb;
     private bool rotating;
@@ -59,7 +60,7 @@ public class walker : MonoBehaviour {
                     Fire();
                 }
             }
-            if (Physics.Raycast(myRay, out hitObj, corrLength))
+            if (Physics.Raycast(myRay, out hitObj, corrLength, wallMask))
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 Bullet raycastHitObject = hitObj.collider.GetComponent<Bullet>();

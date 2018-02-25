@@ -20,9 +20,9 @@ public class NetworkPlayerControl : NetworkBehaviour {
         if (VR)
         {
             VRRig = GameObject.Find("LocalPlayer");
-            indicator = (GameObject)Network.Instantiate(
-            indicatorObject, transform.position, transform.rotation, 0);
-            //CmdSpawnIndicator();
+            //indicator = (GameObject)Network.Instantiate(
+            //indicatorObject, transform.position, transform.rotation, 0);
+            CmdSpawnIndicator();
         }
         if (AR) {
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
@@ -38,15 +38,15 @@ public class NetworkPlayerControl : NetworkBehaviour {
         if (VR)
         {
             transform.position = VRRig.transform.GetChild(0).transform.position;
-            indicator.transform.position = VRRig.transform.GetChild(0).position;
+            //indicator.transform.position = VRRig.transform.GetChild(0).position;
             print(VRRig.transform.GetChild(0).transform.position);
         }
     }
     [Command]
     void CmdSpawnIndicator () {
-        indicator = (GameObject)Instantiate(
+        GameObject temp = (GameObject)Instantiate(
             indicatorObject, transform.position, transform.rotation);
 
-        NetworkServer.Spawn(indicator);
+        NetworkServer.SpawnWithClientAuthority(temp, connectionToClient);
     }
 }

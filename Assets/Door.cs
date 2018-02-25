@@ -37,7 +37,9 @@ public class Door : NetworkBehaviour {
         Debug.Log("Door Clicked");
         if (transform.GetChild(0).GetComponent<Renderer>().enabled)
         {
-            if (!locked)
+            forceDoor = !forceDoor;
+            CmdOpenDoor(forceDoor);
+            /*if (!locked)
             {
                 forceDoor = !forceDoor;
                 CmdOpenDoor(forceDoor);
@@ -50,7 +52,7 @@ public class Door : NetworkBehaviour {
                     SpawnHack();
                     attemptOpen = true;
                 }
-            }
+            }*/
         }
     }
     void Passed () {

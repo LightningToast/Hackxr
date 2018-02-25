@@ -45,6 +45,6 @@ public class NetworkPlayerControl : NetworkBehaviour {
         indicator = (GameObject)Instantiate(
             indicatorObject, transform.position, transform.rotation);
 
-        NetworkServer.SpawnWithClientAuthority(indicator, connectionToClient);
+        NetworkServer.Spawn(indicator);
     }
 }

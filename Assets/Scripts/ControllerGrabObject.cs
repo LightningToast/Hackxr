@@ -8,6 +8,7 @@ public class ControllerGrabObject : MonoBehaviour {
     private GameObject collidingObject;
 
     private GameObject objectInHand;
+    bool isHeld = false;
     private SteamVR_Controller.Device Controller
     {
         get { return SteamVR_Controller.Input((int)trackedObj.index); }
@@ -30,7 +31,7 @@ public class ControllerGrabObject : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("reached");
+ 
         SetCollidingObject(other);
     }
 
@@ -55,6 +56,12 @@ public class ControllerGrabObject : MonoBehaviour {
         // 1
         objectInHand = collidingObject;
         collidingObject = null;
+        objectInHand.transform.position = this.transform.position;
+        Vector3 temp = this.transform.rotation.eulerAngles;
+
+
+        objectInHand.transform.rotation = Quaternion.EulerAngles(temp);
+        isHeld = true;
         // 2
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
@@ -81,25 +88,28 @@ public class ControllerGrabObject : MonoBehaviour {
             objectInHand.GetComponent<Rigidbody>().angularVelocity = Controller.angularVelocity;
         }
         // 4
+        isHeld = false;
         objectInHand = null;
     }
     // Update is called once per frame
     void Update () {
+ 
         if (Controller.GetHairTriggerDown())
         {
+   
             if (collidingObject)
             {
                 GrabObject();
-            }
+                if (objectInHand)
+                {
+                }
+            }  
+        }
+        if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+        {
+            ReleaseObject();
         }
 
-        // 2
-        if (Controller.GetHairTriggerUp())
-        {
-            if (objectInHand)
-            {
-                ReleaseObject();
-            }
-        }
+
     }
 }

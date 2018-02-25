@@ -18,9 +18,11 @@ public class GunScript : MonoBehaviour
     // Use this for initialization
     private SteamVR_TrackedObject trackedObj;
     // 2
-    private SteamVR_Controller.Device Controller
+    private void Start()
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        controller = controllerRight.GetComponent<SteamVR_TrackedController>();
+        controller.TriggerClicked += TriggerPressed;
+        trackedObj = controllerRight.GetComponent<SteamVR_TrackedObject>();
     }
     private void TriggerPressed(object sender, ClickedEventArgs o)
     {
@@ -29,6 +31,7 @@ public class GunScript : MonoBehaviour
     }
     private void ShootWeapon()
     {
+       
         RaycastHit hit = new RaycastHit();
         Ray ray = new Ray(muzzleTransform.position, muzzleTransform.forward);
 
@@ -47,6 +50,6 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+ 
     }
 }

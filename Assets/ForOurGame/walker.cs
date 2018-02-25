@@ -16,7 +16,9 @@ public class walker : MonoBehaviour {
     public GameObject laser;
     public float laserSpeed = 0;
     Animator anim;
-
+    public Vector3 deactivatePose;
+    public float timeDelay = 3.0f;
+    bool deactivated = false;
     // Use this for initialization
     void Start () {
         fireCt = 0;
@@ -39,6 +41,11 @@ public class walker : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
+        if(deactivated)
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
         if(rotating == true && Math.Abs(transform.rotation.y + angle.y) < 0.04)
         {
             transform.rotation = angle;
@@ -83,9 +90,27 @@ public class walker : MonoBehaviour {
 	}
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag.Equals("PlayerBullet"))
+        if(deactivated)
         {
-
+            return;
         }
+        Debug.Log("Hit detected");
+        if (collision.gameObject.tag.Equals("PlayerBullet"))
+        {
+            Debug.Log("Disabled");
+            StartCoroutine(disable());
+        }
+    }
+
+    IEnumerator disable()
+    {
+        Vector3 temp = transform.position;
+        transform.rotation = Quaternion.Euler(deactivatePose);
+        deactivated = true;
+        //rechargeAnim.SetActive(true);
+        yield return new WaitForSeconds(timeDelay);
+        //rechargeAnim.SetActive(false);
+        deactivated = false;
+        transform.rotation = Quaternion.Euler(temp);
     }
 }

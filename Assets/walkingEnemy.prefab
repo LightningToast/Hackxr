@@ -352,14 +352,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334909871214192}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.697868, z: 0}
+  m_LocalRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: -5.66, y: 0.958, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4071234304380118}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4350584309613436
 Transform:
   m_ObjectHideFlags: 1
@@ -523,8 +523,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.16, y: 10.5, z: 7.34}
+  m_Center: {x: 0, y: 3.5, z: 0}
 --- !u!95 &95298884031855686
 Animator:
   serializedVersion: 3
@@ -532,7 +532,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1322310294424510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 08a6fb37a2f216e47bdfa76dcbe8f35e, type: 3}
   m_Controller: {fileID: 9100000, guid: ff58c920a5fb2e04c98e86e2cffb1ca9, type: 2}
   m_CullingMode: 1
@@ -608,8 +608,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayLength: 6
   corrLength: 2
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 4294966271
   laser: {fileID: 1391289460853742, guid: 8e6b286f6b192d94b80db8923175c429, type: 2}
   laserSpeed: 1
+  deactivatePose: {x: 30, y: 90, z: 0}
+  timeDelay: 3
 --- !u!137 &137040901772699486
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class Door : NetworkBehaviour {
+    bool attemptOpen = false;
     Vector3 initialPos;
     public Vector3 openDir;
     Vector3 openPos;
@@ -39,7 +40,12 @@ public class Door : NetworkBehaviour {
             forceDoor = !forceDoor;
             CmdOpenDoor(forceDoor);
         } else {
-            SpawnHack();
+            if (!attemptOpen)
+            {
+             
+                SpawnHack();
+                attemptOpen = true;
+            }
         }
     }
     void Passed () {

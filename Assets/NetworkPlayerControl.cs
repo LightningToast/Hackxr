@@ -20,7 +20,9 @@ public class NetworkPlayerControl : NetworkBehaviour {
         if (VR)
         {
             VRRig = GameObject.Find("LocalPlayer");
-            CmdSpawnIndicator();
+            indicator = (GameObject)Network.Instantiate(
+            indicatorObject, transform.position, transform.rotation, 0);
+            //CmdSpawnIndicator();
         }
         if (AR) {
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;

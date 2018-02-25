@@ -9,7 +9,7 @@ public class Door : NetworkBehaviour {
     public Vector3 openDir;
     Vector3 openPos;
     Vector3 targetPos;
-    public bool locked = true;
+    public bool locked = false;
     public float speed = 1.0f;
     public bool forceDoor = false;
     public Vector3[] hackPositions;

@@ -14,7 +14,7 @@ public class VRRange : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Collider>().bounds.Intersects(GameObject.Find("NetworkPlayer(Clone)").GetComponent<Collider>().bounds))
+        if (GetComponent<Collider>().bounds.Intersects(GameObject.Find("LocalPlayer").GetComponent<Collider>().bounds))
         {
             player = GameObject.Find("NetworkPlayer(Clone)");
         }

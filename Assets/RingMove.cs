@@ -8,6 +8,8 @@ public class RingMove : NetworkBehaviour
     public float maxExtend;
     public float extendSpeed = 0.01f;
     public float extendVal = 0;
+    public float droneHeight = 1.0f;
+    GameObject VRTeleport;
     GameObject VRRig;
     // Use this for initialization
     void Start()
@@ -16,6 +18,7 @@ public class RingMove : NetworkBehaviour
         {
             return;
         }
+        VRTeleport = GameObject.Find("Teleporting").transform.Find("TeleportPointer").gameObject;
         VRRig = GameObject.Find("LocalPlayer");
     }
 
@@ -26,6 +29,10 @@ public class RingMove : NetworkBehaviour
         {
             return;
         }
-        transform.position = VRRig.transform.GetChild(0).position;
+        if(VRTeleport.activeSelf) {
+            transform.position = new Vector3(VRTeleport.transform.position.x, droneHeight, VRTeleport.transform.position.z);
+        } else {
+            transform.position = new Vector3(VRRig.transform.position.x, droneHeight, VRRig.transform.position.z);
+        }
     }
 }

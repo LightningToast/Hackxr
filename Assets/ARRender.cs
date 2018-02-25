@@ -12,7 +12,7 @@ public class ARRender : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (GetComponent<Collider>().bounds.Intersects(GameObject.Find("Indicator").GetComponent<Collider>().bounds))
+        if (GetComponent<Collider>().bounds.Intersects(GameObject.Find("Indicator(Clone)").GetComponent<Collider>().bounds))
         {
             Debug.Log("Bounds intersecting");
             transform.GetChild(0).GetComponent<Renderer>().enabled = true;

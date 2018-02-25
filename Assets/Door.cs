@@ -35,16 +35,21 @@ public class Door : NetworkBehaviour {
 	}
     void Clicked () {
         Debug.Log("Door Clicked");
-        if (!locked)
+        if (transform.GetChild(0).GetComponent<Renderer>().enabled)
         {
-            forceDoor = !forceDoor;
-            CmdOpenDoor(forceDoor);
-        } else {
-            if (!attemptOpen)
+            if (!locked)
             {
-             
-                SpawnHack();
-                attemptOpen = true;
+                forceDoor = !forceDoor;
+                CmdOpenDoor(forceDoor);
+            }
+            else
+            {
+                if (!attemptOpen)
+                {
+
+                    SpawnHack();
+                    attemptOpen = true;
+                }
             }
         }
     }

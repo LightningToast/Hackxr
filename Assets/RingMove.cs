@@ -18,7 +18,7 @@ public class RingMove : NetworkBehaviour
         {
             return;
         }
-        VRTeleport = GameObject.Find("Teleporting").transform.Find("TeleportPointer").gameObject;
+        //VRTeleport = GameObject.Find("Teleporting").transform.Find("DestinationReticle").gameObject;
         VRRig = GameObject.Find("LocalPlayer");
     }
 
@@ -29,7 +29,10 @@ public class RingMove : NetworkBehaviour
         {
             return;
         }
-        if(VRTeleport.activeSelf) {
+        //Debug.Log(GameObject.Find("Teleporting").transform.Find("DestinationReticle").gameObject.activeSelf);
+        VRTeleport = GameObject.Find("Teleporting").transform.Find("DestinationReticle").gameObject;
+        Debug.Log(VRTeleport.activeSelf);
+        if (VRTeleport.activeSelf) {
             transform.position = new Vector3(VRTeleport.transform.position.x, droneHeight, VRTeleport.transform.position.z);
         } else {
             transform.position = new Vector3(VRRig.transform.position.x, droneHeight, VRRig.transform.position.z);

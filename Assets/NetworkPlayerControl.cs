@@ -38,7 +38,7 @@ public class NetworkPlayerControl : NetworkBehaviour {
         if (VR)
         {
             transform.position = VRRig.transform.GetChild(0).transform.position;
-            //indicator.transform.position = VRRig.transform.GetChild(0).position;
+            indicator.transform.position = VRRig.transform.GetChild(0).position;
             print(VRRig.transform.GetChild(0).transform.position);
         }
     }

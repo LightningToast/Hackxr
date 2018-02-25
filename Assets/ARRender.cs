@@ -12,14 +12,15 @@ public class ARRender : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(active) {
-            this.GetComponent<Renderer>().enabled = true;
+            transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         } else {
-            this.GetComponent<Renderer>().enabled = false;
+            transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         }
         active = false;
 	}
     private void OnCollisionStay(Collision collision)
     {
+        print("IN RANGE");
         if(collision.gameObject.tag.Equals("Vision")) {
             active = true;
         }

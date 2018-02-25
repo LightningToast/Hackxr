@@ -19,7 +19,7 @@ public class RingMove : NetworkBehaviour
             return;
         }
         //VRTeleport = GameObject.Find("Teleporting").transform.Find("DestinationReticle").gameObject;
-        VRRig = GameObject.Find("LocalPlayer");
+        VRRig = GameObject.Find("LocalPlayer").transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame

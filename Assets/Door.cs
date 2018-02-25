@@ -5,7 +5,8 @@ using UnityEngine.Networking;
 
 public class Door : NetworkBehaviour {
     Vector3 initialPos;
-    public Vector3 openPos;
+    public Vector3 openDir;
+    Vector3 openPos;
     Vector3 targetPos;
     public bool locked = true;
     public float speed = 1.0f;
@@ -16,6 +17,7 @@ public class Door : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
         initialPos = transform.position;
+        openPos = initialPos + openDir;
         targetPos = initialPos;
         hacks = new GameObject[hackPositions.Length];
 	}

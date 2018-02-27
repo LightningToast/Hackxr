@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class ARRender : MonoBehaviour {
     public bool active = false;
+    bool ignore = false;
 	// Use this for initialization
 	void Start () {
-		
+		if(GameObject.Find("NetworkManager").GetComponent<LocalNetwork>().VR)
+        {
+            ignore = true;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(ignore)
+        {
+            return;
+        }
         if (GetComponent<Collider>().bounds.Intersects(GameObject.Find("Indicator(Clone)").GetComponent<Collider>().bounds))
         {
             Debug.Log("Bounds intersecting");

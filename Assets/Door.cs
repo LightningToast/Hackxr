@@ -15,6 +15,7 @@ public class Door : NetworkBehaviour {
     public Vector3[] hackPositions;
     GameObject[] hacks;
     public GameObject hack;
+    public bool show = false;
 	// Use this for initialization
 	void Start () {
         //initialPos = transform.position;
@@ -25,6 +26,9 @@ public class Door : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(show) {
+            print("target " + targetPos + " initial " + initialPos + " open " + openPos);
+        }
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position,targetPos, step);
         if(Input.GetKeyDown("b")) {

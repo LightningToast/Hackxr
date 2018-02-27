@@ -17,7 +17,7 @@ public class Door : NetworkBehaviour {
     public GameObject hack;
 	// Use this for initialization
 	void Start () {
-        initialPos = transform.position;
+        //initialPos = transform.position;
         openPos =  openDir;
         targetPos = initialPos;
         hacks = new GameObject[hackPositions.Length];

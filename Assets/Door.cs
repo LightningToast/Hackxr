@@ -110,4 +110,10 @@ public class Door : NetworkBehaviour {
             Debug.Log(" RPC Door target " + targetPos);
         }
     }
+    void callOnLocal(bool pos)
+    {
+        open = pos;
+        print("Call on Local " + transform.position);
+        print("Local Name " + this.name);
+    }
 }

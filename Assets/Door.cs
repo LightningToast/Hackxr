@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class Door : NetworkBehaviour {
     bool attemptOpen = false;
-    Vector3 initialPos;
+    public Vector3 initialPos;
     public Vector3 openDir;
     Vector3 openPos;
     Vector3 targetPos;

@@ -1983,6 +1983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: -2.72, y: 1.365, z: -4.72}
   openDir: {x: -2.72, y: 1.365, z: -3.64}
   locked: 1
   speed: 1
@@ -2640,6 +2641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: -2.809, y: 1.45, z: 14.3}
   openDir: {x: -2.809, y: 1.45, z: 13.25}
   locked: 1
   speed: 1
@@ -3394,6 +3396,21 @@ Prefab:
       propertyPath: m_AssetId.i15
       value: 118
       objectReference: {fileID: 0}
+    - target: {fileID: 114090729730766982, guid: e02b9f46644294dcf83deb655fb09876,
+        type: 2}
+      propertyPath: initialPos.x
+      value: 5.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114090729730766982, guid: e02b9f46644294dcf83deb655fb09876,
+        type: 2}
+      propertyPath: initialPos.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 114090729730766982, guid: e02b9f46644294dcf83deb655fb09876,
+        type: 2}
+      propertyPath: initialPos.z
+      value: 9.58
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e02b9f46644294dcf83deb655fb09876, type: 2}
   m_IsPrefabParent: 0
@@ -3473,6 +3490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: -18.402, y: 1.361, z: 14.3}
   openDir: {x: -18.402, y: 1.361, z: 14.3}
   locked: 1
   speed: 1
@@ -4122,6 +4140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: -4.69, y: 1.522, z: -14.47}
   openDir: {x: -4.69, y: 1.522, z: -13.47}
   locked: 1
   speed: 1
@@ -4289,6 +4308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: 1.821, y: 1.466, z: -14.244}
   openDir: {x: 1.821, y: 1.466, z: -13.161}
   locked: 1
   speed: 1
@@ -4676,6 +4696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: 12.023, y: 1.35, z: 10.29}
   openDir: {x: 12.983, y: 1.35, z: 10.29}
   locked: 1
   speed: 1
@@ -6057,6 +6078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: 6.19, y: 1.46, z: 3.12}
   openDir: {x: 7.25, y: 1.46, z: 3.12}
   locked: 1
   speed: 1
@@ -6503,6 +6525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: -2.765, y: 1.45, z: -8.85}
   openDir: {x: -2.765, y: 1.45, z: -9.65}
   locked: 1
   speed: 1
@@ -9477,6 +9500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c7433cb0044b1bae423e8a4418457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos: {x: -4.88, y: 1.41, z: 1.13}
   openDir: {x: -4.88, y: 1.41, z: 0.01}
   locked: 1
   speed: 1

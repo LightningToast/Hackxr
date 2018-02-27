@@ -96,6 +96,7 @@ public class Door : NetworkBehaviour {
     [ClientRpc]
     void RpcOpenDoor(bool pos) {
         open = pos;
+        callOnLocal(pos);
         Debug.Log("RPC Door" + pos);
         if (pos)
         {

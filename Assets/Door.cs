@@ -88,10 +88,12 @@ public class Door : NetworkBehaviour {
         Debug.Log("RPC Door" + pos);
         if (pos)
         {
+            Debug.Log("RPC Door Open Detected " + openPos);
             targetPos = openPos;
         }
         else
         {
+            Debug.Log("RPC Door Closed Detected " + initialPos);
             targetPos = initialPos;
         }
     }

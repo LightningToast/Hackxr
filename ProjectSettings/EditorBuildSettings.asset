@@ -8,6 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/hackxr.unity
     guid: 2f199a3466fc50c4fb0445f38c922476
-  - enabled: 1
-    path: Assets/GameOver.unity
-    guid: 2dd91e61295f01944bd7ddc8dff683ba
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000

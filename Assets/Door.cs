@@ -16,6 +16,7 @@ public class Door : NetworkBehaviour {
     GameObject[] hacks;
     public GameObject hack;
     public bool show = false;
+    bool open = false;
 	// Use this for initialization
 	void Start () {
         //initialPos = transform.position;
@@ -28,6 +29,11 @@ public class Door : NetworkBehaviour {
 	void Update () {
         if(show) {
             print("target " + targetPos + " initial " + initialPos + " open " + openPos);
+        }
+        if(open) {
+            targetPos = openDir;
+        } else {
+            targetPos = initialPos;
         }
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position,targetPos, step);
@@ -89,6 +95,7 @@ public class Door : NetworkBehaviour {
     }
     [ClientRpc]
     void RpcOpenDoor(bool pos) {
+        open = pos;
         Debug.Log("RPC Door" + pos);
         if (pos)
         {

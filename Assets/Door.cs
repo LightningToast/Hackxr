@@ -8,7 +8,7 @@ public class Door : NetworkBehaviour {
     public Vector3 initialPos;
     public Vector3 openDir;
     Vector3 openPos;
-    Vector3 targetPos;
+    public Vector3 targetPos;
     public bool locked = false;
     public float speed = 1.0f;
     public bool forceDoor = false;
@@ -85,6 +85,7 @@ public class Door : NetworkBehaviour {
     }
     [ClientRpc]
     void RpcOpenDoor(bool pos) {
+        Debug.Log("RPC Door" + pos);
         if (pos)
         {
             targetPos = openPos;

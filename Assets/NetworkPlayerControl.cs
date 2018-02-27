@@ -40,7 +40,7 @@ public class NetworkPlayerControl : NetworkBehaviour {
         {
             transform.position = VRRig.transform.GetChild(0).transform.position;
 
-            print(VRRig.transform.GetChild(0).transform.position);
+            //print(VRRig.transform.GetChild(0).transform.position);
         }
         timeCount += Time.deltaTime;
 

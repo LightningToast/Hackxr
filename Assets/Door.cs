@@ -16,7 +16,7 @@ public class Door : NetworkBehaviour {
     GameObject[] hacks;
     public GameObject hack;
     public bool show = false;
-    bool open = false;
+    public bool open = false;
 	// Use this for initialization
 	void Start () {
         //initialPos = transform.position;
